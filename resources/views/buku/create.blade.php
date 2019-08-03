@@ -143,6 +143,14 @@ $(document).ready(function() {
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="email" class="col-md-4 control-label">Harga</label>
+                            <div class="col-md-6">
+                                <img width="200" height="200" />
+                                <input type="text" class="uploads form-control" style="margin-top: 20px;" name="harga">
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn btn-primary" id="submit">
                                     Submit
                         </button>

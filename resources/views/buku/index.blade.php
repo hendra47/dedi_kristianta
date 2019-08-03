@@ -65,6 +65,9 @@
                             Rak
                           </th>
                           <th>
+                            Harga
+                          </th>
+                          <th>
                             Action
                           </th>
                         </tr>
@@ -99,6 +102,9 @@
                           </td>
                           <td>
                             {{$data->lokasi}}
+                          </td>
+                          <td>
+                            {{$data->harga}}
                           </td>
                           <td>
                           <div class="btn-group dropdown">

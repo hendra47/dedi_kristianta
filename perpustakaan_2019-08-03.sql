@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.25)
 # Database: perpustakaan
-# Generation Time: 2019-07-23 11:11:09 +0000
+# Generation Time: 2019-08-03 12:50:19 +0000
 # ************************************************************
 
 
@@ -71,17 +71,18 @@ CREATE TABLE `buku` (
   `cover` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `harga` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 LOCK TABLES `buku` WRITE;
 /*!40000 ALTER TABLE `buku` DISABLE KEYS */;
 
-INSERT INTO `buku` (`id`, `judul`, `isbn`, `pengarang`, `penerbit`, `tahun_terbit`, `jumlah_buku`, `deskripsi`, `lokasi`, `cover`, `created_at`, `updated_at`)
+INSERT INTO `buku` (`id`, `judul`, `isbn`, `pengarang`, `penerbit`, `tahun_terbit`, `jumlah_buku`, `deskripsi`, `lokasi`, `cover`, `created_at`, `updated_at`, `harga`)
 VALUES
-	(1,'Belajar Pemrograman Java','9920392749','Abdul Kadir','PT. Restu Ibu',2018,20,'Buku Pertama Belajar Pemrograman Java Utk Pemula','rak1','buku_java.jpg','2019-07-13 16:13:57','2019-07-13 16:13:57'),
-	(2,'Pemrograman Android','9920395559','Muhammad Nurhidayat','PT. Restu Guru',2018,14,'Jurus Rahasia Menguasai Pemrograman Android','rak2','jurus_rahasia.jpg','2019-07-13 16:13:57','2019-07-13 16:13:57'),
-	(3,'Android Application','9920392000','Dina Aulia','PT. Restu Ayah',2018,5,'Buku Pertama Belajar Pemrograman Java Utk Pemula','rak2','create_your.jpg','2019-07-13 16:13:57','2019-07-13 16:13:57');
+	(1,'Belajar Pemrograman Java','9920392749','Abdul Kadir','PT. Restu Ibu',2018,20,'Buku Pertama Belajar Pemrograman Java Utk Pemula','rak1','buku_java.jpg','2019-07-13 16:13:57','2019-08-03 10:39:48',10000),
+	(2,'Pemrograman Android','9920395559','Muhammad Nurhidayat','PT. Restu Guru',2018,14,'Jurus Rahasia Menguasai Pemrograman Android','rak2','jurus_rahasia.jpg','2019-07-13 16:13:57','2019-07-13 16:13:57',10000),
+	(3,'Android Application','9920392000','Dina Aulia','PT. Restu Ayah',2018,6,'Buku Pertama Belajar Pemrograman Java Utk Pemula','rak2',NULL,'2019-07-13 16:13:57','2019-08-03 10:41:21',10000);
 
 /*!40000 ALTER TABLE `buku` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -136,6 +137,16 @@ CREATE TABLE `transaksi` (
   CONSTRAINT `transaksi_buku_id_foreign` FOREIGN KEY (`buku_id`) REFERENCES `buku` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+LOCK TABLES `transaksi` WRITE;
+/*!40000 ALTER TABLE `transaksi` DISABLE KEYS */;
+
+INSERT INTO `transaksi` (`id`, `kode_transaksi`, `anggota_id`, `buku_id`, `tgl_pinjam`, `tgl_kembali`, `status`, `ket`, `created_at`, `updated_at`)
+VALUES
+	(1,'TR00001',2,3,'2019-08-03','2019-08-08','kembali',NULL,'2019-08-03 10:37:52','2019-08-03 10:41:21'),
+	(2,'TR00002',1,1,'2019-08-03','2019-08-08','kembali',NULL,'2019-08-03 10:39:40','2019-08-03 10:39:48');
+
+/*!40000 ALTER TABLE `transaksi` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table users

@@ -3,13 +3,7 @@
             <div class="nav-link">
               <div class="user-wrapper">
                 <div class="profile-image">
-                @if(Auth::user()->gambar == '')
-
-                  <img src="{{asset('images/user/default.png')}}" alt="profile image">
-                @else
-
-                  <img src="{{asset('images/user/'. Auth::user()->gambar)}}" alt="profile image">
-                @endif
+                <img src="{{asset('images/user/default.jpg')}}" alt="profile image">
                 </div>
                 <div class="text-wrapper">
                   <p class="profile-name">{{Auth::user()->name}}</p>

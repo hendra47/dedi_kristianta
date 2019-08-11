@@ -44,11 +44,7 @@
           <li class="nav-item dropdown d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <span class="profile-text">Hello, {{Auth::user()->name}} !</span>
-                @if(Auth::user()->gambar == '')
-                  <img class="img-xs rounded-circle"  src="{{asset('images/user/default.png')}}" alt="profile image">
-                @else
-                <img class="img-xs rounded-circle"  src="{{asset('images/user/'.Auth::user()->gambar)}}" alt="profile image">
-                @endif
+                  <img class="img-xs rounded-circle"  src="{{asset('images/user/default.jpg')}}" alt="profile image">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <a class="dropdown-item p-0">

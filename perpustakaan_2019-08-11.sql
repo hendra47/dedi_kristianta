@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.25)
 # Database: perpustakaan
-# Generation Time: 2019-08-03 12:50:19 +0000
+# Generation Time: 2019-08-11 12:47:49 +0000
 # ************************************************************
 
 
@@ -130,6 +130,7 @@ CREATE TABLE `transaksi` (
   `ket` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `denda` int(10) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `transaksi_anggota_id_foreign` (`anggota_id`),
   KEY `transaksi_buku_id_foreign` (`buku_id`),
@@ -140,10 +141,10 @@ CREATE TABLE `transaksi` (
 LOCK TABLES `transaksi` WRITE;
 /*!40000 ALTER TABLE `transaksi` DISABLE KEYS */;
 
-INSERT INTO `transaksi` (`id`, `kode_transaksi`, `anggota_id`, `buku_id`, `tgl_pinjam`, `tgl_kembali`, `status`, `ket`, `created_at`, `updated_at`)
+INSERT INTO `transaksi` (`id`, `kode_transaksi`, `anggota_id`, `buku_id`, `tgl_pinjam`, `tgl_kembali`, `status`, `ket`, `created_at`, `updated_at`, `denda`)
 VALUES
-	(1,'TR00001',2,3,'2019-08-03','2019-08-08','kembali',NULL,'2019-08-03 10:37:52','2019-08-03 10:41:21'),
-	(2,'TR00002',1,1,'2019-08-03','2019-08-08','kembali',NULL,'2019-08-03 10:39:40','2019-08-03 10:39:48');
+	(1,'TR00001',2,3,'2019-08-03','2019-08-08','kembali',NULL,'2019-08-03 10:37:52','2019-08-03 10:41:21',0),
+	(2,'TR00002',1,1,'2019-08-03','2019-08-08','kembali',NULL,'2019-08-03 10:39:40','2019-08-03 10:39:48',0);
 
 /*!40000 ALTER TABLE `transaksi` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -174,7 +175,7 @@ LOCK TABLES `users` WRITE;
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `gambar`, `level`, `remember_token`, `created_at`, `updated_at`)
 VALUES
-	(1,'Admin','admin','admin@cariprogram.id','$2y$10$wZGCoZ75XXpFogZH8GjWUeb/G71oSpp6.LVe5367oYa/tVG.rGfxK',NULL,'admin','48SnC7YSVgv4IKhxYtok2Ce4dOC0NOEdU3BdExXeqF7N5O4RgmF4En6HNEWr','2019-07-13 16:13:57','2019-07-13 16:13:57'),
+	(1,'Admin','admin','admin@cariprogram.id','$2y$10$wZGCoZ75XXpFogZH8GjWUeb/G71oSpp6.LVe5367oYa/tVG.rGfxK',NULL,'admin','3VSF99ZyrSInuDL9bcjWz2vcDApEcxScSrp0Mv1CSq5JXf1q2vigUXwfySmC','2019-07-13 16:13:57','2019-07-13 16:13:57'),
 	(2,'User','user','user@cariprogram.id','$2y$10$UefTBOSBa7Uv6sDL253IpelIgABpEEPKgAlsm3eTjuPzEu6S6.WPy',NULL,'user',NULL,'2019-07-13 16:13:57','2019-07-13 16:13:57');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;

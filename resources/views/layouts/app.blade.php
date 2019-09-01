@@ -85,7 +85,7 @@
         <footer class="footer">
           <div class="container-fluid clearfix">
             <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © {{date('Y')}}
-            <a href="https://Cariprogram.id/" target="_blank">Cariprogram.id</a>. All rights reserved.</span>
+            <a href="#" target="_blank">SDS Kingdom School</a>. All rights reserved.</span>
           </div>
         </footer>
         <!-- partial -->

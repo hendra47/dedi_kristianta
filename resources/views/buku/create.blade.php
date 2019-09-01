@@ -146,8 +146,15 @@ $(document).ready(function() {
                         <div class="form-group">
                             <label for="email" class="col-md-4 control-label">Harga</label>
                             <div class="col-md-6">
-                                <img width="200" height="200" />
-                                <input type="text" class="uploads form-control" style="margin-top: 20px;" name="harga">
+                                <input type="text" class="form-control" style="margin-top: 20px;" name="harga">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="email" class="col-md-4 control-label">Denda</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" style="margin-top: 20px;" name="denda">
                             </div>
                         </div>
 

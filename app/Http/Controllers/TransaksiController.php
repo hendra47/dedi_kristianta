@@ -36,6 +36,7 @@ class TransaksiController extends Controller
         } else {
             $datas = Transaksi::get();
         }
+        // dd($datas);
         return view('transaksi.index', compact('datas'));
     }
 
@@ -159,9 +160,22 @@ class TransaksiController extends Controller
     public function update(Request $request, $id)
     {
         $transaksi = Transaksi::find($id);
+        $dataBuku = Buku::find($transaksi->buku->id);
+
+        $denda=0;
+        if(strtotime($transaksi->tgl_kembali) < strtotime(date("Y-m-d"))) {
+            $now = time(); // or your date as well
+            $your_date = strtotime($transaksi->tgl_kembali);
+            $datediff = $now - $your_date;
+            $day = round($datediff / (60 * 60 * 24));
+            $denda= $dataBuku->denda*round($day);
+            // dd($denda);
+        }
 
         $transaksi->update([
-                'status' => 'kembali'
+                'status' => 'kembali',
+                'dikembalikan'=> date("Y-m-d"),
+                'denda'=>$denda
                 ]);
 
         $transaksi->buku->where('id', $transaksi->buku->id)

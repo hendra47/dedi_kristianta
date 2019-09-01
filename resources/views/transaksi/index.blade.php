@@ -51,6 +51,9 @@ $(document).ready(function() {
                                     Tgl Kembali
                                 </th>
                                 <th>
+                                    Tgl Dikembalikan
+                                </th>
+                                <th>
                                     Denda
                                 </th>
                                 <th>
@@ -86,7 +89,17 @@ $(document).ready(function() {
                                 </td>
 
                                 <td>
-                                    {{$data->denda}}
+
+                                @if($data->dikembalikan)
+                                    {{date('d/m/y', strtotime($data->dikembalikan))}}
+                                    @else
+                                        <p>-</p>
+                                    @endif
+
+                                </td>
+
+                                <td>
+                                   Rp. {{number_format($data->denda, 0, '', '.')}}
                                 </td>
                                 <td>
                                     @if($data->status == 'pinjam')
@@ -111,7 +124,7 @@ $(document).ready(function() {
                                                 {{ method_field('put') }}
                                                 <button class="dropdown-item"
                                                     onclick="return confirm('Anda yakin data ini sudah kembali?')">
-                                                    Sudah Kembali
+                                                    Kembali
                                                 </button>
                                             </form>
                                             @endif
@@ -133,7 +146,7 @@ $(document).ready(function() {
                                         {{ csrf_field() }}
                                         {{ method_field('put') }}
                                         <button class="btn btn-info btn-xs"
-                                            onclick="return confirm('Anda yakin data ini sudah kembali?')">Sudah Kembali
+                                            onclick="return confirm('Anda yakin data ini sudah kembali?')">Kembali
                                         </button>
                                     </form>
                                     @else

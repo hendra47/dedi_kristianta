@@ -68,6 +68,9 @@
                             Harga
                           </th>
                           <th>
+                            Denda
+                          </th>
+                          <th>
                             Action
                           </th>
                         </tr>
@@ -105,6 +108,9 @@
                           </td>
                           <td>
                             {{$data->harga}}
+                          </td>
+                          <td>
+                            {{$data->denda}}
                           </td>
                           <td>
                           <div class="btn-group dropdown">

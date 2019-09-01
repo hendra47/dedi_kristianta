@@ -155,6 +155,18 @@ $(document).ready(function() {
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('harga') ? ' has-error' : '' }}">
+                            <label for="denda" class="col-md-4 control-label">Denda</label>
+                            <div class="col-md-6">
+                                <input id="pengarang" type="text" class="form-control" name="denda" value="{{ $data->denda }}" required>
+                                @if ($errors->has('denda'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('denda') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn btn-primary" id="submit">
                                     Update
                         </button>

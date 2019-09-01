@@ -135,6 +135,8 @@ class BukuController extends Controller
                 'jumlah_buku' => $request->get('jumlah_buku'),
                 'deskripsi' => $request->get('deskripsi'),
                 'lokasi' => $request->get('lokasi'),
+                'harga' => $request->get('harga'),
+                'denda' => $request->get('denda'),
                 'cover' => $cover
             ]);
 
@@ -199,6 +201,8 @@ class BukuController extends Controller
             $cover = NULL;
         }
 
+        // dd($request->get('denda'));
+
         Buku::find($id)->update([
              'judul' => $request->get('judul'),
                 'isbn' => $request->get('isbn'),
@@ -208,6 +212,8 @@ class BukuController extends Controller
                 'jumlah_buku' => $request->get('jumlah_buku'),
                 'deskripsi' => $request->get('deskripsi'),
                 'lokasi' => $request->get('lokasi'),
+                'harga' => $request->get('harga'),
+                'denda' => $request->get('denda'),
                 'cover' => $cover
                 ]);
 
